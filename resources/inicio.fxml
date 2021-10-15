@@ -26,7 +26,7 @@
                         </columnResizePolicy>
                     </TableView>
                 </Tab>
-                <Tab text="ErroresLexicos">
+                <Tab text=" ">
                     <TableView fx:id="lexico" layoutX="14.0" layoutY="250" prefHeight="150.0" prefWidth="500.0">
                         <columns>
                             <TableColumn fx:id="Cmensaje" prefWidth="75.0" text="MensajeError" />
@@ -38,7 +38,7 @@
                         </columnResizePolicy>
                     </TableView>
                 </Tab>
-                <Tab text="ErroresSintactico">
+                <Tab text=" ">
                     <TableView fx:id="sintactico" layoutX="14.0" layoutY="250" prefHeight="150.0" prefWidth="500.0">
                         <columns>
                             <TableColumn fx:id="ColumnaMensaje" prefWidth="75.0" text="MensajeError"/>

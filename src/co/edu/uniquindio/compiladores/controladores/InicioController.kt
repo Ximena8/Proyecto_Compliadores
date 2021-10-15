@@ -113,7 +113,7 @@ class InicioController : Initializable {
 
             var lexicoo = AnalizadorLexico(codigoFuente = codigoFuente.text)
             lexicoo.analizar()
-            tablaTokens.items = FXCollections.observableArrayList(lexicoo.ListaTokens)
+             tablaTokens.items = FXCollections.observableArrayList(lexicoo.ListaTokens)
             lexico.items = FXCollections.observableArrayList(lexicoo.listaErroresLexicos)
 
 
