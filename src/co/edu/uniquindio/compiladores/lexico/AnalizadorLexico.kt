@@ -1,7 +1,7 @@
 package co.edu.uniquindio.compiladores.lexico
 
 /*
- * Ximena Silva
+ * Ximena Silva, Elier Duque
  */
 
 class AnalizadorLexico (var codigoFuente:String){

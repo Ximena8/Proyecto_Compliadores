@@ -10,14 +10,14 @@ import javafx.fxml.Initializable
 import javafx.scene.control.TableColumn
 import javafx.scene.control.TableView
 import javafx.scene.control.TextArea
-import javafx.scene.control.TreeView
+
 import javafx.scene.control.cell.PropertyValueFactory
 import java.net.URL
 import java.util.*
-import kotlin.collections.ArrayList
+
 
 /*
- * @ Ximena Silva
+ * @ Ximena Silva, Elier Duque
  */
 class InicioController : Initializable {
 
@@ -48,41 +48,13 @@ class InicioController : Initializable {
      */
     @FXML lateinit var Ccolumna : TableColumn<Token,Int>
 
-    @FXML lateinit var arbolVisual : TreeView<String>
 
-    /*
-        Columna dentro de la tabla que representa el mensaje de error
-    */
-    @FXML lateinit var Cmensaje: TableColumn<Error,String>
-    /*
-        Columna dentro de la tabla que representa la fila en donde se presento un error lexico
-    */
-    @FXML lateinit var Cfilaa : TableColumn<Error,Int>
-    /*
-       Columna dentro de la tabla que representa la columna en donde se presento un error lexico
-   */
-    @FXML lateinit var Ccolumnaa : TableColumn<Error,Int>
-    /*
-       Tabla que representa los datos de donde se presento un error en el codigo fuente
-   */
+
+
+
     @FXML lateinit var lexico: TableView<Error>
 
-    /*
-       Columna dentro de la tabla que representa el mensaje de error en donde se presento un error sintactico
-   */
-    @FXML lateinit var ColumnaMensaje: TableColumn<Error,String>
-    /*
-      Columna dentro de la tabla que representa la fila en donde se presento un error sintactico
-  */
-    @FXML lateinit var CFila : TableColumn<Error,Int>
-    /*
-      Columna dentro de la tabla que representa la columna en donde se presento un error sintactico
-  */
-    @FXML lateinit var CColumnaa : TableColumn<Error,Int>
-    /*
-      Tabla que representa los datos de donde se presento un error sintactico en el codigo fuente
-  */
-    @FXML lateinit var sintactico: TableView<Error>
+
 
     override fun initialize(location: URL?, resources: ResourceBundle?)
     {
@@ -91,13 +63,6 @@ class InicioController : Initializable {
         Cfila.cellValueFactory = PropertyValueFactory("fila")
         Ccolumna.cellValueFactory = PropertyValueFactory("columna")
 
-        Cmensaje.cellValueFactory =PropertyValueFactory("error")
-        Cfilaa.cellValueFactory =PropertyValueFactory("Fila")
-        Ccolumnaa.cellValueFactory = PropertyValueFactory("Columna")
-
-        ColumnaMensaje.cellValueFactory = PropertyValueFactory("error")
-        CFila.cellValueFactory =PropertyValueFactory("Fila")
-        CColumnaa.cellValueFactory = PropertyValueFactory("Columna")
 
     }
 

@@ -1,6 +1,6 @@
 package co.edu.uniquindio.compiladores.lexico
 /*
- * @ Ximena Silva
+ * @ Ximena Silva, Elier Duque
  */
 enum class Categoria {
 
