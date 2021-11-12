@@ -501,7 +501,7 @@ class AnalizadorLexico (var codigoFuente:String){
         {
             lexema+=caracterActual
             obtenerSiguienteCaracter()
-            almacenarToken(lexema,Categoria.TERMINAL,filaInicial,columnaInicial)
+            almacenarToken(lexema,Categoria.FIN_SENTENCIA,filaInicial,columnaInicial)
             return true
         }
 
@@ -951,11 +951,11 @@ class AnalizadorLexico (var codigoFuente:String){
         var filaInicial= filaActual
         var columnaInicial= columnaActual
         var posicionInicial = posicionActual
-        if(caracterActual=='.')
+        if(caracterActual=='P')
         {
             lexema+=caracterActual
             obtenerSiguienteCaracter()
-            if(caracterActual=='.')
+            if(caracterActual=='P')
             {
                 lexema+=caracterActual
                 obtenerSiguienteCaracter()
