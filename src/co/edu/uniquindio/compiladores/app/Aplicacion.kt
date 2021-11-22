@@ -7,7 +7,7 @@ import javafx.scene.Parent
 import javafx.scene.Scene
 import javafx.stage.Stage
 /*
- *@ Ximena Silva, Elier Duque
+ *@ Ximena Silva
  */
 class Aplicacion : Application() {
 

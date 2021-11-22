@@ -14,6 +14,7 @@ class Mientras(var exp: Expresion,var list: ArrayList<Sentencia>): Sentencia() {
         var raiz = TreeItem("mientras")
 
         var raizExpre = TreeItem("Expresion")
+        var raizDefault = TreeItem("Default")
         raizExpre.children.add(exp.getArbolVisual())
         raiz.children.add(raizExpre)
         var raizLista = TreeItem("ListaSentencias")

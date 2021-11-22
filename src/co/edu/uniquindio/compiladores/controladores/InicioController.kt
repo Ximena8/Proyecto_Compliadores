@@ -3,6 +3,8 @@ package co.edu.uniquindio.compiladores.controladores
 import co.edu.uniquindio.compiladores.lexico.AnalizadorLexico
 import co.edu.uniquindio.compiladores.lexico.Error
 import co.edu.uniquindio.compiladores.lexico.Token
+import co.edu.uniquindio.compiladores.sintaxis.AnalizadorSintactico
+import co.edu.uniquindio.compiladores.sintaxis.UnidadCompilacion
 import javafx.collections.FXCollections
 import javafx.event.ActionEvent
 import javafx.fxml.FXML
@@ -17,14 +19,13 @@ import java.util.*
 
 
 /*
- * @ Ximena Silva, Elier Duque
+ * @ Ximena Silva
  */
 class InicioController : Initializable {
 
-
     /*
-        Representa componente grafico de donde se extrae el condigo fuente
-     */
+   Representa componente grafico de donde se extrae el condigo fuente
+   */
     @FXML lateinit var codigoFuente: TextArea
     /*
         Tabla en donde se presentan los Tokens identificados
@@ -78,7 +79,7 @@ class InicioController : Initializable {
 
             var lexicoo = AnalizadorLexico(codigoFuente = codigoFuente.text)
             lexicoo.analizar()
-             tablaTokens.items = FXCollections.observableArrayList(lexicoo.ListaTokens)
+            tablaTokens.items = FXCollections.observableArrayList(lexicoo.ListaTokens)
             lexico.items = FXCollections.observableArrayList(lexicoo.listaErroresLexicos)
 
 
@@ -91,6 +92,5 @@ class InicioController : Initializable {
 
 
     }
-
 
 }

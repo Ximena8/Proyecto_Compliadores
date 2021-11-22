@@ -3,7 +3,9 @@ package co.edu.uniquindio.compiladores.sintaxis
 import co.edu.uniquindio.compiladores.lexico.Categoria
 import co.edu.uniquindio.compiladores.lexico.Error
 import co.edu.uniquindio.compiladores.lexico.Token
-
+/*
+ * Ximena Silva
+ */
 class AnalizadorSintactico(var listaTokens:ArrayList<Token>) {
 
     var posActual = 0
@@ -1551,13 +1553,5 @@ class AnalizadorSintactico(var listaTokens:ArrayList<Token>) {
         }
         return null
     }
-
-
-
-
-
-
-
-
 
 }
