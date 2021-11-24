@@ -82,8 +82,8 @@ class AnalizadorSintactico(var listaTokens:ArrayList<Token>) {
     }
 
     /**
-     *funcion que verifica si es lista de metodos
-     * <ListaMetodos>:: = <Funcion>[<ListaFunciones>]
+     *funcion que verifica si es lista de funciones
+     * <ListaFunciones>:: = <Funcion>[<ListaFunciones>]
      */
     fun esListaFunciones():ArrayList<Funcion>
     {
@@ -114,10 +114,12 @@ class AnalizadorSintactico(var listaTokens:ArrayList<Token>) {
             {
                 val identificador = tokenActual
                 obtenerSiguienteToken()
+
                 var tipoRetorno:Token? = esTipoRetorno()
+
                 if(tipoRetorno!=null)
-                {
-                    obtenerSiguienteToken()
+                { obtenerSiguienteToken()
+
                     if(tokenActual.categoria== Categoria.PARENTESIS_IZQ)
                     {
                         obtenerSiguienteToken()
@@ -147,7 +149,7 @@ class AnalizadorSintactico(var listaTokens:ArrayList<Token>) {
                                 }
                                 else
                                 {
-                                    reportarError("Falta lista de sentencias  ")
+                                    reportarError("Falta lista de sentencias esta vacio ")
                                     return null
                                 }
 

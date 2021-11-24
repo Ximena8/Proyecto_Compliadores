@@ -7,7 +7,7 @@ import javafx.scene.control.TreeItem
  * <Leer> ::= leer identificador "#"
  */
 
-class LeerLeer(var identificador:Token):Sentencia( ) {
+class Leer(var identificador:Token):Sentencia( ) {
 
     override fun toString(): String{
         return "Leer(identificador=$identificador)"
