@@ -1,5 +1,8 @@
 package co.edu.uniquindio.compiladores.sintaxis
 
+import co.edu.uniquindio.compiladores.lexico.Error
+import co.edu.uniquindio.compiladores.semantica.Ambito
+import co.edu.uniquindio.compiladores.semantica.TablaSimbolos
 import javafx.scene.control.TreeItem
 
 /**
@@ -8,10 +11,9 @@ import javafx.scene.control.TreeItem
  */
 
 class Decision (var expresionLogica:ExpresionLogica, var listaSentencias: ArrayList<Sentencia>) : Sentencia() {
-    override fun toString(): String {
+    override fun toString(): String{
         return "Decision(expresionLogica=$expresionLogica, listaSentancias=$listaSentencias,)"
     }
-
 
     override fun getArbolVisual(): TreeItem<String>
     {
@@ -29,6 +31,31 @@ class Decision (var expresionLogica:ExpresionLogica, var listaSentencias: ArrayL
 
         raiz.children.add(raizLista)
         return raiz
+    }
+
+    override fun llenarTablaSimbolos(tablaSimbolos: TablaSimbolos, erroresSemanticos: ArrayList<Error>, ambito: String,tipos: ArrayList<String>) {
+        for (l in listaSentencias)
+        {
+            l.llenarTablaSimbolos(tablaSimbolos,erroresSemanticos,ambito+"Desicion",tipos)
+        }
+    }
+
+    override fun analizarSemantica(tablaSimbolos: TablaSimbolos, erroresSemanticos: ArrayList<Error>, ambito: String,tipos:ArrayList<String>) {
+        expresionLogica.analizarSemantica(tablaSimbolos, ambito, erroresSemanticos)
+        for (l in listaSentencias)
+        {
+            l.analizarSemantica(tablaSimbolos,erroresSemanticos,ambito+"Desicion",tipos)
+        }
+    }
+    override  fun getJavaCode():String
+    {
+        var codigo= "if(" + expresionLogica.getJavaCode()+"){"+ "\n"
+        for (l in listaSentencias)
+        {
+            codigo+=l.getJavaCode()+ "\n"
+        }
+        codigo+="}"
+        return codigo
     }
 
 }

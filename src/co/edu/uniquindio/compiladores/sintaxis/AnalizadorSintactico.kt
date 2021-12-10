@@ -335,7 +335,7 @@ class AnalizadorSintactico(var listaTokens:ArrayList<Token>) {
 
     /**
      * Metodo que se encarga de verificar si una secuencia de tokens constituye una lista de expresiones
-     * <Expresion>::= <ExpresionLogica> | <ExpresionRelaciona> | <ExpresionAritmetica> | <ExpresionCadena>
+     * <Expresion>::= <ExpresionLogica> | <ExpresionRelacional> | <ExpresionAritmetica> | <ExpresionCadena>
      */
     fun esExpresion():Expresion?
     {
@@ -509,7 +509,7 @@ class AnalizadorSintactico(var listaTokens:ArrayList<Token>) {
 
     /**
      *  Metodo que se encarga de verificar si una secuencia de tokens constituye una Expresion Relacional
-     *  <ExpresionRelacional>::= ["("]<ExpresionAritmetica>OPR<ExpresionAritmetica>[")"]
+     *  <ExpresionRelacional>::= ["("]<ExpresionAritmetica>operadorRelacional<ExpresionAritmetica>[")"]
      */
     fun esExpresionRelacional():ExpresionRelacional?
     {
@@ -587,7 +587,7 @@ class AnalizadorSintactico(var listaTokens:ArrayList<Token>) {
 
     /**
      *  Metodo que se encarga de verificar si una secuencia de tokens constituye una Expresion Logica
-     *  <ExpresionLogica>::=<TerminoLogico>OPLBINARIO<ExpresionLogica>[<Z>] |<TerminoLogico>[<Z>] | ["?/"]"(" <ExpresionLogica>")"[<Z>]
+     *  <ExpresionLogica>::=<TerminoLogico>OPLBINARIO<ExpresionLogica> |<TerminoLogico> | ["?/"]"(" <ExpresionLogica>")"
      *  <Z>::=OPLBINARIO <ExpresionLogica> [<Z>] | OPLBINARIO <TerminoLogico> [<Z>
      */
     fun esExpresionLogica():ExpresionLogica?
@@ -935,7 +935,7 @@ class AnalizadorSintactico(var listaTokens:ArrayList<Token>) {
 
     /**
      * Metodo que se encarga de verificar si una secuencia de tokens constituye una declaracion de variable
-     * <DeclaracionVariables> ::= Var <TipoDato> ​"​&​" Identificador "#"
+     * <DeclaracionVariables> ::= Var <TipoDato> "&" Identificador "#"
      */
     fun esDeclaracionVariables():DeclaracionVariable?
     {
@@ -1064,7 +1064,7 @@ class AnalizadorSintactico(var listaTokens:ArrayList<Token>) {
                         if(tokenActual.categoria==Categoria.FIN_SENTENCIA)
                         {
                             obtenerSiguienteToken()
-                            var imp:Impresion= Impresion(exp ,num)
+                            var imp:Impresion= Impresion(exp, num)
                             return imp
                         }
                         else
@@ -1439,7 +1439,7 @@ class AnalizadorSintactico(var listaTokens:ArrayList<Token>) {
 
     /**
      *  Metodo que se encarga de verificar si una secuencia de tokens constituye un incremento
-     *<Incremento> ::= inc identificador <Operador incremento> “#”
+     *<Incremento> ::= inc identificador <Operador> incremento> “#”
      */
     fun esIncremento():Incremento?
     {

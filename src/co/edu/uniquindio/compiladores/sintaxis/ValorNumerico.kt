@@ -2,6 +2,7 @@ package co.edu.uniquindio.compiladores.sintaxis
 
 import co.edu.uniquindio.compiladores.lexico.Token
 import javafx.scene.control.TreeItem
+import kotlin.math.sign
 
 class ValorNumerico(val signo: Token?, val valor: Token) {
 
@@ -23,6 +24,16 @@ class ValorNumerico(val signo: Token?, val valor: Token) {
             return raiz
         }
 
+    }
+
+    fun getJavaCode():String {
+        var codigo = ""
+        if(signo!=null)
+        {
+            codigo+= signo.getJavaCode()
+        }
+        codigo += valor.getJavaCode()
+        return codigo
     }
 
 }
